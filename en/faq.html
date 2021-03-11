@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/img/favicon.ico">
+
+  <title>TsingHua Fly Center - FAQ</title>
+  <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/style.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+  <header class="header">
+    <div class="container head">
+      <div class="logo">
+        <img src="/img/banner3.png" alt="Tsinghua Fly Center">
+      </div>
+      <div class="btn-group btn-group-xs" style="float: right;">
+      <a class="btn btn-default" href="/faq.html" role="button">中</a>
+      <a class="btn btn-default disabled" href="#" role="button">EN</a>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <ul class="nav navbar-nav">
+        <li><a href="/en/">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Service <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/en/rnai.html">Transgenic RNAi &<br>Transcriptional activation (FlySAM)</a></li>
+            <li><a href="/en/injection.html">Microinjection</a></li>
+            <li><a href="/en/crispr.html">CRISPR/Cas9</a></li>
+          </ul></li>
+        <li><a href="/en/dl.html">Search</a></li>
+        <li><a href="/en/order.html">Order Guide</a></li>
+        <li class="active"><a href="/en/faq.html">FAQ</a></li>
+        <li><a href="/en/about.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container main-content">
+    <div class="panel panel-warning">
+    <div class="panel-heading">案例一</div>
+    <div class="panel-body">
+    <p id="a_q"><span class="label label-warning">&amp;Q</span> 之前在你们那边做过一个转基因果蝇品系，该品系转的是<code>276b-Gal4</code>基因，所用的质粒为前期从你们那边拿回来的pVAM定点插入质粒，所插入的染色体为二号染色体，虫子拿回来之后，我做杂交发现了一个问题，该品系与野生型果蝇<code>W1118</code>杂交后F1代出现了白眼，而若是转基因成功的话应该是浅红眼而非白眼，后面我又提该品系果蝇的基因组做了一个所转基因<code>Gal4</code>的PCR检测，却检测到了GAL4基因，表明转基因是成功的，这两个检测的结论出现了矛盾。为什么转基因成功了，二号染色体上却并没有携带红眼基因Vermilion？下面附的是杂交方法图片。</p><img src="../img/4-1.png" alt="4-1.png">
+    <p id="a_a"><span class="label label-info">&amp;A</span> <span class="text-danger">vermilion</span>和<span class="text-muted">white</span>虽然都控制眼色，但是却是<b>两个不同的基因</b>，而且white是上位基因（epistatic）。你的杂交方案所有的F1代雄蝇应该都是白眼，雌蝇应该都是深红眼。你还要注意<code>w1118</code>带的是野生型的vermilion，而且这个转基因带的是野生型的white，所以在使用这个转基因果蝇的时候要考虑到这两点。</p></div>
+    </div>
+    <div class="panel panel-warning">
+    <div class="panel-heading">案例二</div>
+    <div class="panel-body">
+    <p id="b_q1"><span class="label label-warning">Q1</span> 关于您组提供的一些RNAi品系，我想反映一点问题。<br/>
+    我订购的一些品系，订购的瓶子上都标记的是attp2，也就是定位在III号染色体，但是，我用这些品系的male果蝇分别与<code>w1118</code>处女蝇杂交后，都出现眼色雌雄分离的现象（♀都是红眼，♂都是白眼），根据眼色来判断，那么pUAST是插在X染色体上的。所以我的问题是：<br/>
+    1. 您那边用的质粒是pUAST-attb带有white gene marker吗？眼色能否作为pUAST插入的marker？<br/>
+    2.微注射的F0代与平衡子单杂的子代，是否挑选那些去掉了转座酶的子代，如果杂交时没注意这一点，那么转座酶的残留就会导致转座子任意跳出插入。<br/>
+    暂时就是有这些疑惑，期待您的解答。</p>
+    <p id="b_a1"><span class="label label-info">A1</span> 我们这些品系shRNA都是插到3号染色体上的，以<code>vermilion+</code>为标记，而其X染色体是w+v-的。所以与<code>w1118</code>雌蝇交配后代眼色不同。<br/>我们不是使用的转座子插入shRNA的，我们是使用phiC31重组酶将质粒插入attP位点的，phiC31重组酶转基因位于X染色体，已经通过交配去掉了。但是请注意attP位点本身原来是用转座子插入基因组的，所以不要与有转座酶活性的品系杂交。</p>
+    <p id="b_q2"><span class="label label-warning">Q2</span> 还有一点问题，<br/>
+    1. 某个品系，为什么带了两个染色体的平衡子：<code>sco，sb</code>？如果是shRNA在III号染色体的话，是不是只带sb平衡子就可以了？<br/>
+    2. 分析了一下，还是有点疑惑，转座酶位于X染色体，并且通过杂交去除，也就是X染色体的W+的marker也同时被去除？那为什么还会出现红眼？或者说这些shRNA品系 X染色体的w+是怎么来的？不知是否方便把你们注射后的杂交方案提供一下？</p>
+    <p id="b_a2"><span class="label label-info">A2</span> 可能我上一封邮件没有说清楚。这个品系的基因型大致上是<code>y-,v-,sc-,w+;;[shRNA]y+v+/TM3,Sb</code>
+    您看到的sc表型不是二号上的Sco显性突变，而是X染色体上的sc纯合隐性突变。这株果蝇只带TM3一个平衡子。<br/>另外，我们构建这些果蝇的时候没有用到转座酶，是用的phiC31重组酶。这个重组酶转基因不带w+的marker。红眼是由于white基因本身是野生型的，而且这些RNAi品系眼色是野生型才是正常的情况。</p>
+    <p id="b_q3"><span class="label label-warning">Q3</span> RNAi品系带的<code>vermilion+</code>标记，这个标记的纯合或杂合眼色是什么颜色？我没有用过这个标记。<br/>我用<code>y-,v-,sc-,w+;;[shRNA]y+v+/TM3,Sb</code>与<code>w1118</code>杂交后，发现不带Sb平衡子的子代male蝇眼色几乎是白色的，看不到任何颜色，但理论上来看，它应该呈现vermilion的眼色。难道这个marker是个隐性的标记？</p>
+    <p id="b_a3"><span class="label label-info">A3</span> vermilion-是隐性的，纯合突变是朱砂眼，也就是浅红色。补回vermilion+后是野生型的深红色。white对vermilion是上位基因，后代雄蝇由于是带w1118的X染色体，所以是白眼。</p>
+    <p id="b_q4"><span class="label label-warning">Q4</span> <code>y-,v-,sc-,w+;;[shRNA]y+v+/TM3,Sb</code> X <code>w1118</code>的子代雄蝇基因型是：<code>y-,w-/Y;;[shRNA]y+v+/+</code>, 其中有v+/+，它不能表现出浅红色的眼色？<br/>那我们把这些RNAi品系与gal4杂交，就不用care眼色了，只要挑选不带平衡子的子代就行了？对吗？</p>
+    <p id="b_a4"><span class="label label-info">A4</span> white基因对vermilion是上位的，所以它不能表现出浅红眼。<br/>是的，对这个品系只要不带TM3平衡子就行。其它不带平衡子的品系直接杂交就可以了。</p></div>
+    </div>
+
+    <div class="panel panel-warning">
+    <div class="panel-heading">案例三</div>
+    <div class="panel-body">
+    <p id="c_q1"><span class="label label-warning">Q1</span> 关于在贵处订的果蝇，我有一个疑问,希望你能指点一下，就是：<br/>
+    插入位点是3号染色体的果蝇，有的上面带有<code>TM3,Sb</code>的标记，我知道TM3是3号上的balancer，表型是短刚毛，但Sb是什么标记呢？是marker还是balancer？带在几号染色体上？表型是什么？是否和TM3连锁在一起？</p>
+    <p id="c_a1"><span class="label label-info">A1</span> 我们有一些转基因RNAi果蝇是纯合致死的，所以用TM3这个balancer平衡。Sb指的就是短刚毛，TM3 balancer很多是带Sb这个marker的。Sb是显性突变，同时是纯合致死的。另外，我们部分的RNAi果蝇品系在X染色体上带有sc隐性突变，背板无刚毛，请注意与Sb的表型区分。</p>
+    <p id="c_q2"><span class="label label-warning">Q2</span> 我订了同一个基因的三个果蝇品系ABC，发现这三个果蝇的表型差异很大（并没有用gal4驱动），我想知道：都是定点插入的line，为什么差别会这么大？是插入位点不一样还是拷贝数不一样？同时我想知道attp2和attp40的插入位点是什么？只有一个位点还是有很多个？<br/>另外再问一个我疑惑的很久的问题，用pUAST做转基因果蝇的时候，因为pUAST上带有一个红眼的标记，所以可以通过眼睛的颜色来判断是否插入成功。我注意到你们的载体是没有带标记的，那你们怎么检验自己的RNAi果蝇是已经定点插入成功的呢？<br/>
+    还有一个问题，有什么3号上的balancer，能在larvae期识别出来的（TM6B不算，因为我觉得比较难认）？</p>
+    <p id="c_a2"><span class="label label-info">A2</span> 这三个品系表型差异大主要是因为使用的小hairpin靶点不一样。另外我们也发现现在用的RNAi载体有basal level的表达。这样即使没有配Gal4，也会有微量的hairpin表达。大多数的情况下这种微量的表达是没有问题的。但看来你研究的这个基因刚好碰到这种微量hairpin表达也有部分敲除效应的情况。attp2和attp40两个插入位点分别在3号和2号染色体上，而且都是只有一个插入位点。倪老师之前发表的nature methods里有提到。<br/>我们的RNAi载体是用vermilion+标记的，这样从朱砂色突变眼的果蝇中可以挑出野生型眼色的成功插入。<br/>TM6B在2龄3龄larvae期已经算是好认的了。另外常用的有所谓green balancer等，是用荧光标记的，理论上embryo期都可以看到。但如果你们没有带荧光的体视镜也没法用。我之前用过一个<code>CyO，Kr-GFP</code>的，没有想像的好用。另外这些品系可能要到Bloomington订，我们这里也许只有Jose老师有一些，我可以帮你问一下。不过你可以上<a href="http://flystocks.bio.indiana.edu/Browse/balancers/balancer_chr3.php" target="_blank">Bloomington</a>网上先查一下。<br/>那个RNAi载体有微量表达的情况对你的实验结果理论上应该没有影响。你应该可以配上Gal4后先观察这三株的表型，另外看看它们表型差异是不是很大。</p>
+    <p id="c_q3"><span class="label label-warning">Q3</span> 关于三株果蝇，我又有一个问题，通过Real Time qPCR检测，我发现A株的目标基因呈过表达状态（对照为<code>attp2 Trip control 36303</code>），<code>Elav>2516:Elav>36303</code>约为2（取头部），<code>Da>2516:Da>36303</code>约为4（取全身），而B株和C株都为RNAi状态，因而我想问一下，贵处的RNAi果蝇出现overexpression是否属正常现象，还是我的检查方法有误？A株是RNAi还是overexpression？</p>
+    <p id="c_a3"><span class="label label-info">A3</span> A株用的是long dsRNA敲除目标基因，而另两个用的是shRNA。你的qPCR引物要是刚好在long dsRNA内部就有问题了。其实还是抗体染色看蛋白质变化比较可靠。</p>
+    <p id="c_q4"><span class="label label-warning">Q4</span> 关于A株的问题，按照你的提示，我用UCSC的Blat进行比对，证实了我的QPCR引物确实落在了long dsRNA内部，但当我在比对B株和C株的shRNA序列时，发现不仅可以找出目标基因Unr，还可以找出一个无关基因<code>mir-1 (2L:20,487,441..20,487,531 )</code>，对此我十分疑惑，由于此信息对我的实验影响比较大，希望你能帮忙解答~</p>
+    <p id="c_a4"><span class="label label-info">A4</span> 这应该是因为我们的hairpin是基于mir-1来设计的，以保证shRNA表达的稳定性。</p>
+    <p id="c_q5"><span class="label label-warning">Q5</span> 那mir-1会被干扰吗？因为我注意到果蝇出现的表型与flybase上mir-1基因报道的表型比较类似，不知你们是否可以排除mir-1被干扰的情况？</p>
+    <p id="c_a5"><span class="label label-info">A5</span> mir-1不会被干扰，因为mir-1的21个nt已经被替换了。我们实际上用的是mir-1的scaffold。</p></div>
+    </div>
+
+    <div class="panel panel-warning">
+    <div class="panel-heading">案例四</div>
+    <div class="panel-body">
+    <p id="d_q"><span class="label label-warning">&amp;Q</span> 关于在贵处订的果蝇，我有一个疑问，为什么flySAM2.0激活的果蝇没有特别明显的表型？</p>
+    <p id="d_a"><span class="label label-info">&amp;A</span> flySAM激活系统表达具有组织器官特异性，而且表达效果因基因而异，因此我们不能保证所有的转基因激活果蝇都可以有效工作，具体表达情况可能需要您需要检测手段检测目的基因表达量的变化。</p></div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="foot">
+      <span style="padding-right: 20px;"><a href="http://www.tsinghua.edu.cn/">Tsinghua University</a></span><span style="padding-right: 20px;"><a href="http://life.tsinghua.edu.cn/">School of Life Sciences,THU</a></span><span><a href="http://www.med.tsinghua.edu.cn/">School of Medicine,THU</a></span></span><p style="margin-bottom: 0"><span style="
+      padding-right: 40px;
+      ">TEL: +86-010-62773106</span>  <span>MAIL: lpliu@mail.tsinghua.edu.cn</span></p>
+      <p style="color:#999;font-size:12px;margin-bottom:0">Copyright © 2016 Tsinghua University. All Right Reserved.</p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

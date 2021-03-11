@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/img/favicon.ico">
+
+  <title>清华大学果蝇中心 - 搜索</title>
+  <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/style.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+  <header class="header">
+    <div class="container head">
+      <div class="logo">
+        <img src="/img/banner3.png" alt="Tsinghua Fly Center">
+      </div>
+      <div class="btn-group btn-group-xs" style="float: right;">
+      <a class="btn btn-default disabled" href="#" role="button">中</a>
+      <a class="btn btn-default" href="/en/dl.html" role="button">EN</a>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+      <ul class="nav navbar-nav">
+        <li><a href="./">主页</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">服务 <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="./rnai.html">Transgenic RNAi &<br>Transcriptional activation (FlySAM)</a></li>
+            <li><a href="./injection.html">Microinjection</a></li>
+            <li><a href="./crispr.html">CRISPR/Cas9</a></li>
+          </ul></li>
+        <li class="active"><a href="./dl.html">搜索</a></li>
+        <li><a href="./order.html">订购指南</a></li>
+        <li><a href="./faq.html">常见问题</a></li>
+        <li><a href="./about.html">联系我们</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container main-content">
+    <div class="search">
+    <form class="form-horizontal">
+    <fieldset>
+    <legend>RNAi Stock <sup><a class="glyphicon glyphicon-question-sign" href="./rnai.html"></a></sup>
+    <span style="font-size:10px;color: lightgrey">完整表格在页面底部<a href="#dl_panel">下载</a>, 多个搜索词请用{ | }间隔开</span><img style="display:inline-block" src="/img/pipe.png">
+    </legend>
+    <div class="row">
+    <!-- First row begin-->
+    <div class="col-xs-6">
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="s_th">TH number</label>
+        <div class="col-xs-6">
+        <input id="s_th" name="s_th" type="text" placeholder="THU3008" class="form-control input-md single">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="s_fb">FBgn number</label>
+        <div class="col-xs-6">
+        <input id="s_fb" name="s_fb" type="text" placeholder="FBgn0010105" class="form-control input-md multi">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="s_cg">CG number</label>
+        <div class="col-xs-6">
+        <input id="s_cg" name="s_cg" type="text" placeholder="CG17943" class="form-control input-md multi">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="loc">Location</label>
+        <div class="col-xs-6">
+        <input id="loc" name="loc" type="text" placeholder="20161226" class="form-control input-md single">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="s_lo">New Location</label>
+        <div class="col-xs-6">
+        <input id="s_lo" name="s_lo" type="text" placeholder="pNP-001-01" class="form-control input-md single">
+        </div>
+      </div>
+    </div>
+    <!-- First row end-->
+
+    <!-- Second row begin-->
+    <div class="col-xs-6">
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="s_sy">Gene Symbol</label>
+        <div class="col-xs-6">
+        <input id="s_sy" name="s_sy" type="text" placeholder="TyrR,comm,kto" class="form-control input-md multi">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="s_hi">Hairpin ID</label>
+        <div class="col-xs-6">
+        <input id="s_hi" name="s_hi" type="text" placeholder="TR02437P.1" class="form-control input-md single">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="s_hl">Hairpin Loc</label>
+        <div class="col-xs-4">
+          <select id="s_hl" name="s_hl" class="form-control precise">
+          <option value=""></option>
+            <option value="attP2">attP2</option>
+            <option value="attp40">attp40</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4 control-label" for="s_ve">Vector</label>
+        <div class="col-xs-5">
+          <select id="s_ve" name="s_ve" class="form-control precise">
+            <option value=""></option>
+            <option value="pNP">pNP</option>
+            <option value="flySAM2.0">flySAM2.0</option>
+            <option value="VALIUM1">VALIUM1</option>
+            <option value="VALIUM10">VALIUM10</option>
+            <option value="VALIUM20">VALIUM20</option>
+            <option value="VALIUM22">VALIUM22</option>
+          </select>
+        </div>
+      </div>
+      <label id="pa" data-param=""></label>
+      <!-- Button -->
+      <div class="col-xs-3 col-xs-offset-1">
+        <input id="reset" type="reset" value="Reset" class="btn btn-default">
+      </div>
+      <div class="col-xs-3">
+        <button id="submit" type="submit" class="btn btn-primary">
+          <i></i>
+        </button>
+      </div>
+      <div class="checkbox col-xs-3">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" name="desc" id="order">
+          倒序
+        </label>
+      </div>
+    </div>
+    <!-- Second row end-->
+
+    </div></fieldset>
+    </form>
+    <div id="results" class="hide">
+      <a class="float" onclick="$('html,body').animate({scrollTop:0},'slow');return false;"><i class="glyphicon glyphicon-chevron-up"></i></a>
+      <div class="panel panel-default" style="margin: 0 -16;">
+        <div class="panel-heading"></div>
+          <div class="table-responsive flipped">
+            <table class="table table-hover table-striped flipped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>TH</th>
+                  <th>TRiP#</th>
+                  <th>Discription</th>
+                  <th>CG#</th>
+                  <th>Gene Symbol</th>
+                  <th>FBgn</th>
+                  <th>FWD oligo</th>
+                  <th>RVS oligo</th>
+                  <th>Vector</th>
+                  <th>Hairpin ID</th>
+                  <th>Hairpin Location</th>
+                  <th>Location</th>
+                  <th>New Location</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div id="show_more_main">
+          <button class="btn btn-link btn-xs btn-block" id="show_more">== Show more ==</button>
+          <button class="btn btn-link btn-xs btn-block loading" id="loading"><i class="glyphicon glyphicon-refresh"></i>Loading....</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <hr class="divider-dash">
+    <div class="container">
+      <h3>文件下载</h3>
+      <div id="dl_panel">
+      <a class="btn btn-default" href="/dl/RNAi stock.xlsx" target="_blank" role="button"><i class="icon xls"></i>Stock汇总表</a>
+      <a class="btn btn-default" href="/dl/Stock Order Form.xls" role="button"><i class="icon xls"></i>果蝇订购单</a>
+      <a class="btn btn-default" href="/dl/Account information.doc" role="button"><i class="icon doc"></i>账户信息</a>
+      <a class="btn btn-default" href="/dl/flySAM2.0 activation stock.xlsx" target="_blank" role="button"><i class="icon xls"></i>flySAM2.0 activation stock</a>
+      <a class="btn btn-default" href="/dl/toolbox-stock.xlsx" role="button"><i class="icon xls"></i>Stock toolbox</a>
+      <a class="btn btn-default" href="/dl/Materials Transfer Agreement.doc" role="button"><i class="icon doc"></i>MTA for plasmid</a>
+      <a class="btn btn-default" href="/dl/fly-center MTA.doc" role="button"><i class="icon doc"></i>MTA for drosophila stocks</a>
+      <a class="btn btn-default" href="//zzbd.org/align" role="button"><i class="icon glyphicon glyphicon-leaf"></i>Primer Match</a>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="foot">
+      <span style="padding-right: 20px;"><a href="http://www.tsinghua.edu.cn/">清华大学</a></span><span style="padding-right: 20px;"><a href="http://life.tsinghua.edu.cn/">清华大学生命科学学院</a></span><span><a href="http://www.med.tsinghua.edu.cn/">清华大学医学院</a></span></span><p style="margin-bottom: 0"><span style="
+      padding-right: 40px;
+      ">电话: +86-010-62773106</span>  <span>邮箱: lpliu@mail.tsinghua.edu.cn</span></p>
+      <p style="color:#999;font-size:12px;margin-bottom:0">Copyright © 2016 Tsinghua University. All Right Reserved.</p>
+    </div>
+  </footer>
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.8.2/dist/av-min.js"></script>
+<script type="text/javascript">
+  if (typeof Promise === "undefined") { 
+    var script = document.createElement('script'); 
+    script.type = 'text/javascript'; 
+    script.src = 'https://cdn.bootcdn.net/ajax/libs/bluebird/3.7.2/bluebird.core.min.js' 
+    document.getElementsByTagName('body')[0].appendChild(script);
+  }
+$(document).ready(function(){
+    function appendRow(idx, data) {
+      var str = ''
+      data.forEach(function(o) {
+        str += '<tr><th scope="row">'+(++idx)+"</th>"
+             + "<td>"+(o.get('s_th')||'-')+"</td>"
+             + "<td>"+(o.get('s_tr')||'-')+"</td>"
+             + "<td>"+(o.get('disc')||'-')+"</td>"
+             + "<td>"+(o.get('s_cg')||'-')+"</td>"
+             + "<td>"+(o.get('s_sy')||'-')+"</td>"
+             + "<td>"+(o.get('s_fb')||'-')+"</td>"
+             + "<td>"+(o.get('oligoF')||'-')+"</td>"
+             + "<td>"+(o.get('oligoR')||'-')+"</td>"
+             + "<td>"+(o.get('s_ve')||'-')+"</td>"
+             + "<td>"+(o.get('s_hi')||'-')+"</td>"
+             + "<td>"+(o.get('s_hl')||'-')+"</td>"
+             + "<td>"+(o.get('loc')||'-')+"</td>"
+             + "<td>"+(o.get('s_lo')||'-')+"</td></tr>"
+      });
+    $('tbody').append(str);
+  }
+  $(document).on('click','#count_btn',function(){
+    stock.count().then(function(c){
+      $('#results .panel-heading').text(c+' results in total')
+    }).catch(function(e) {
+        $('#results .panel-heading').text(e.rawMessage.split('\n')[0])
+        $('#results .panel').removeClass('panel-warning panel-success').addClass('panel-danger')
+      })
+  })
+  //init LC
+  var max_show = 50;
+  AV.init({
+    appId: "dYvd6ddghS2d4CflmL4sHAR4-9Nh9j0Va",
+    appKey: "TfG9y42M3eIt9n1FltCqvJ38",
+    serverURL: "https://io.zzbd.org"
+  });
+  // localStorage.setItem('debug', 'leancloud*');
+  var stock = {}
+  //show more table
+  $('#show_more').click(function(){
+    $('#show_more').hide();
+    $('#loading').show();
+    var row_count = $('#results tbody tr').length;
+    stock.skip(row_count);
+    //perform query
+    stock.find().then(function(data) {
+      $('#loading').hide();
+      if (data.length == max_show) {
+        $('#show_more').show();
+        real_count = (row_count+max_show)+'+'
+      } else {
+        real_count = row_count+data.length
+      }
+      $('#results .panel-heading').html(real_count+' results. <button id="count_btn">Count</button>')
+      appendRow(row_count, data)
+    }).catch(function(e) {
+      $('#results .panel-heading').text(e.rawMessage.split('\n')[0])
+      $('#results .panel').removeClass('panel-warning panel-success').addClass('panel-danger')
+    })
+  });
+  // submit
+  $("form").submit(function(e) {
+    e.preventDefault();
+    var headContent = "";
+    var param = $(".form-control:input")
+    .filter(function(i, e) {
+      return $(e).val() != "";
+    }).serializeArray();
+    $('#pa').data('param', param);
+    stock = new AV.Query('Stocks');
+    $.each(param, function(i, o) {
+      var val = o.value.split('|')
+      if (val.length == 1) {
+        if ($('#'+o.name).hasClass('multi')) stock.contains(o.name, val[0])
+        else if ($('#'+o.name).hasClass('precise')) stock.equalTo(o.name, val[0])
+        else stock.startsWith(o.name, val[0])
+      } else {
+        stock.containedIn(o.name, val)
+      }        
+    })
+    order.checked ? stock.descending('s_th') : stock.ascending('s_th');
+    stock.limit(max_show);
+    $('#submit').addClass('loading')
+    $('#results').removeClass('hide')
+    $('#show_more').hide()
+    $('#loading').hide()
+    //perform query
+    stock.find().then(function(data) {
+      $('#results tbody').html('')
+      if (data.length == 0) {
+        $('#results .panel').removeClass('panel-success panel-danger').addClass('panel-warning')
+        headContent = 'No results.'
+      } else {
+        $('#results .panel').removeClass('panel-warning panel-danger').addClass('panel-success')
+        if (data.length == max_show) {
+          headContent = max_show+'+ results. <button id="count_btn">Count</button>'
+          $('#show_more').show();
+        } else {
+          headContent = data.length+' results.'
+        }
+        appendRow($('#results tbody tr').length, data)
+      }
+    }).catch(function(e) {
+      headContent = e.rawMessage.split('\n')[0]
+      $('#results .panel').removeClass('panel-warning panel-success').addClass('panel-danger')
+    }).finally(function(){
+      $('#results .panel-heading').html(headContent)
+      $('#submit').removeClass('loading')        
+    });
+  });
+});
+</script>
+</body>
+</html>
