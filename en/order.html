@@ -6,13 +6,13 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="/img/favicon.ico">
+  <link rel="icon" href="../img/favicon.ico">
 
   <title>TsingHua Fly Center - Order Guide</title>
-  <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/style.css" rel="stylesheet">
-  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.1.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -20,10 +20,10 @@
   <header class="header">
     <div class="container head">
       <div class="logo">
-        <img src="/img/banner3.png" alt="Tsinghua Fly Center">
+        <img src="../img/banner3.png" alt="Tsinghua Fly Center">
       </div>
       <div class="btn-group btn-group-xs" style="float: right;">
-      <a class="btn btn-default" href="/order.html" role="button">中</a>
+      <a class="btn btn-default" href="../order.html" role="button">中</a>
       <a class="btn btn-default disabled" href="#" role="button">EN</a>
       </div>
     </div>
@@ -31,27 +31,27 @@
   <div class="container">
     <nav class="navbar navbar-default" role="navigation">
       <ul class="nav navbar-nav">
-        <li><a href="/en/">Home</a></li>
+        <li><a href="./">Home</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Service <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/en/rnai.html">Transgenic RNAi &<br>Transcriptional activation (FlySAM)</a></li>
-            <li><a href="/en/injection.html">Microinjection</a></li>
-            <li><a href="/en/crispr.html">CRISPR/Cas9</a></li>
+            <li><a href="./rnai.html">Transgenic RNAi &<br>Transcriptional activation (FlySAM)</a></li>
+            <li><a href="./injection.html">Microinjection</a></li>
+            <li><a href="./crispr.html">CRISPR/Cas9</a></li>
           </ul></li>
-        <li><a href="/en/dl.html">Search</a></li>
-        <li class="active"><a href="/en/order.html">Order Guide</a></li>
-        <li><a href="/en/faq.html">FAQ</a></li>
-        <li><a href="/en/about.html">Contact</a></li>
+        <li><a href="./dl.html">Search</a></li>
+        <li class="active"><a href="./order.html">Order Guide</a></li>
+        <li><a href="./faq.html">FAQ</a></li>
+        <li><a href="./about.html">Contact</a></li>
       </ul>
     </nav>
   </div>
   <div class="container main-content">
     <ol>
-      <li><a href="/dl.html">Search</a> or <a href="#dl">download</a> the stock list from the website and find the lines you are interested in.</li>
+      <li><a href="./dl.html">Search</a> or <a href="#dl">download</a> the stock list from the website and find the lines you are interested in.</li>
       <li>Fill in the <a href="#dl">order form</a>.</li>
       <li>Send the form to Yuhao Qiu (email: <code>qiuyh18@mails.tsinghua.edu.cn</code>) and Luping Liu(email: <code>lpliu@mail.tsinghua.edu.cn</code>) to make clear your purpose.</li>
-      <li>If it’s the first time you order lines form THFC, there’s an additional step: sign and stamp official seal on the <a href="#dl">Material Transfer Agreement</a> (*must be signed by the supervisor), then fax the scanned document to us. For orders of transgenic flies, you need to sign <a href="#dl">MTA for Drosophila Stock</a>, for orders of plasmid, please sign <a href="#dl">MTA for Plasmid</a>.</li>
+      <li>If it’s the first time you order lines form THFC, there’s an additional step: sign and stamp official seal on the <a href="#dl">Material Transfer Agreement</a> (*must be signed by the supervisor), then fax the scanned document to us. For orders of transgenic flies, you need to sign <a href="#dl">Materials Transfer Agreement</a>, for orders of plasmid, please sign <a href="#dl">Materials Transfer Agreement</a>.</li>
       <li>If you want to buy our Drosophila lines, please fill the Stock Order Form, rename this file and your e-mail as Name of <u>buyer-Name of PI-Company-Date-By mail(or pick by yourself)</u>.</li>
       <li>You'd better choose the attp40 site integrated (2nd chromosome) Drosophila lines, for those Drosophila lines with integrate site at 3rd chromosome (attp 2) may show light red eyes. This will not affect integrated gene expression.</li>
     </ol>
@@ -62,7 +62,7 @@
         <li>Due to weather conditions, if fruit flies ordered from July 1st to September 1st and December 15th to March 1st of the following year have problems growing due to temperature discomfort, we do not provide free re-mailing service. In addition, during this time, you need to indicate in the order mail or reply to my mail to confirm that you are aware of the risks in the mailing process.</li>
       </ul>
     </div>
-    <h3>Cost</h3>
+    <h3 id="cost">Cost</h3>
     <p>The stock fee (not including shipping fee) and discount are similar to those of the Bloomington stock center. The number of stocks ordered is cumulative through the calendar year and need not be ordered all at once to obtain the discounted price. In addition, the order price of plasmids is $75 per plasmid. If you need drosophila injections and fruit fly customization, please consult the administrator to put forward your specific needs, and we will give a quotation after evaluation.</p>
     <table class="table table-striped table-condensed">
       <tr>
@@ -98,13 +98,12 @@
   <div id="dl" class="container">
     <h3>File Download</h3>
     <div id="dl_panel">
-      <a class="btn btn-default" href="/dl/RNAi stock.xlsx" target="_blank" role="button"><i class="icon xls"></i>RNAi stock information</a>
-      <a class="btn btn-default" href="/dl/Stock Order Form.xls" role="button"><i class="icon xls"></i>Stock Order Form</a>
-      <a class="btn btn-default" href="/dl/Account information.doc" role="button"><i class="icon doc"></i>Account information</a>
-      <a class="btn btn-default" href="/dl/flySAM2.0 activation stock.xlsx" target="_blank" role="button"><i class="icon xls"></i>flySAM2.0 activation stock</a>
-      <a class="btn btn-default" href="/dl/toolbox-stock.xlsx" role="button"><i class="icon xls"></i>Stock toolbox</a>
-      <a class="btn btn-default" href="/dl/Materials Transfer Agreement.doc" role="button"><i class="icon doc"></i>MTA for plasmid</a>
-      <a class="btn btn-default" href="/dl/fly-center MTA.doc" role="button"><i class="icon doc"></i>MTA for drosophila stocks</a>
+      <a class="btn btn-default" href="../dl/RNAi stock.xlsx" target="_blank" role="button"><i class="icon xls"></i>RNAi stock information</a>
+      <a class="btn btn-default" href="../dl/Stock Order Form.xls" role="button"><i class="icon xls"></i>Stock Order Form</a>
+      <a class="btn btn-default" href="../dl/Account information.doc" role="button"><i class="icon doc"></i>Account information</a>
+      <a class="btn btn-default" href="../dl/flySAM2.0 activation stock.xlsx" target="_blank" role="button"><i class="icon xls"></i>flySAM2.0 activation stock</a>
+      <a class="btn btn-default" href="../dl/toolbox-stock.xlsx" role="button"><i class="icon xls"></i>Stock toolbox</a>
+      <a class="btn btn-default" href="../dl/Materials Transfer Agreement.doc" role="button"><i class="icon doc"></i>Materials Transfer Agreement</a>
       <a class="btn btn-default" href="//zzbd.org/align" role="button"><i class="icon glyphicon glyphicon-leaf"></i>Primer Match</a>
     </div>
   </div>

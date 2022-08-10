@@ -6,13 +6,14 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="/img/favicon.ico">
+  <link rel="icon" href="./img/favicon.ico">
 
   <title>清华大学果蝇中心 - 关于</title>
-  <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/style.css" rel="stylesheet">
-  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-  <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.1.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  <script src='//cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js'></script>
 </head>
 
 <body>
@@ -20,11 +21,11 @@
   <header class="header">
     <div class="container head">
       <div class="logo">
-        <img src="/img/banner3.png" alt="Tsinghua Fly Center">
+        <img src="./img/banner3.png" alt="Tsinghua Fly Center">
       </div>
       <div class="btn-group btn-group-xs" style="float: right;">
       <a class="btn btn-default disabled" href="#" role="button">中</a>
-      <a class="btn btn-default" href="/en/about.html" role="button">EN</a>
+      <a class="btn btn-default" href="en/about.html" role="button">EN</a>
       </div>
     </div>
   </header>
@@ -60,8 +61,17 @@
       <br> E-mail:<br>qiuyh18@mails.tainghua.edu.cn
       <br> (carbon copy：lpliu@mail.tsinghua.edu.cn ）
     </p>
-    <img src="/img/5-1.jpg" alt="map">
+    <img src="./img/5-1.jpg" alt="map">
   </div>
+  <hr class="divider-dash">
+  <div id="waline"></div>
+  <script>
+    new Waline({
+      el: '#waline',
+      path: location.pathname,
+      serverURL: 'https://thfc-comment.vercel.app/'
+    });
+  </script>
   <footer class="footer">
     <div class="foot">
       <span style="padding-right: 20px;"><a href="http://www.tsinghua.edu.cn/">清华大学</a></span><span style="padding-right: 20px;"><a href="http://life.tsinghua.edu.cn/">清华大学生命科学学院</a></span><span><a href="http://www.med.tsinghua.edu.cn/">清华大学医学院</a></span></span><p style="margin-bottom: 0"><span style="
