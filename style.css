@@ -19,7 +19,7 @@ textarea{font-family:Inconsolata,consolas,monaco,monospace,sans-serif;transition
 .main-content{min-height:250px}
 .main-content img{display:block;margin-left:auto;margin-right:auto;max-width:700px;border-radius:3px}
 .float{position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#7030a0;color:#fff;border-radius:50px;text-align:center;line-height:2;font-size:xx-large;cursor:pointer;box-shadow:2px 2px 3px #999}
-.logo>img{float:left}
+.logo>img{float:left;height:120px;}
 .empty-list{color:#999;font-size:2.5rem;text-align:center;line-height:13rem}
 .delay{min-height:200px;background:url(/img/loader.gif) center center no-repeat}
 .divider-dash{background-color:#fff;border-top:2px dashed #8c8b8b}
