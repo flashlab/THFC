@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,10 +9,10 @@
   <link rel="icon" href="../img/favicon.ico">
 
   <title>TsingHua Fly Center - Search</title>
-  <link href="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendor/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="../style.css" rel="stylesheet">
-  <script src="//cdn.jsdelivr.net/npm/jquery@3.1.1/dist/jquery.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  <script src="../vendor/jquery/3.1.1/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
     <form class="form-horizontal">
     <fieldset>
     <legend>RNAi Stock <sup><a class="glyphicon glyphicon-question-sign" href="./rnai.html"></a></sup>
-    <span style="font-size:10px;color: lightgrey">full list is avaliable <a href="#dl_panel">here</a>, enter multiple keywords seperate by pipe symbol.</span><img style="display:inline-block" src="../img/pipe.png">
+    <span style="font-size:10px;color: lightgrey">full list is avaliable <a href="#dl_panel">here</a>, enter multiple keywords seperate by pipe symbol.</span><img style="display:inline-block" src="../img/pipe.png" width="30" height="24">
     </legend>
     <div class="row">
     <!-- First row begin-->
@@ -216,7 +216,7 @@ $(document).ready(function(){
 
   function loadData() {
     if (!dataLoading) {
-      dataLoading = $.getJSON('/dl/stocks.json').then(function(d){ allData = d; });
+      dataLoading = $.getJSON('../dl/stocks.json').then(function(d){ allData = d; });
     }
     return dataLoading;
   }

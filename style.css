@@ -17,15 +17,15 @@ tbody{font-family:consolas,monaco,monospace,sans-serif}
 textarea{font-family:Inconsolata,consolas,monaco,monospace,sans-serif;transition:.2s}
 .info{padding-top:30px}
 .main-content{min-height:250px}
-.main-content img{display:block;margin-left:auto;margin-right:auto;max-width:700px;border-radius:3px}
+.main-content img{display:block;margin-left:auto;margin-right:auto;max-width:700px;border-radius:3px;height:auto}
 .float{position:fixed;width:60px;height:60px;bottom:40px;right:40px;background-color:#7030a0;color:#fff;border-radius:50px;text-align:center;line-height:2;font-size:xx-large;cursor:pointer;box-shadow:2px 2px 3px #999}
 .logo>img{float:left;height:120px;}
 .empty-list{color:#999;font-size:2.5rem;text-align:center;line-height:13rem}
-.delay{min-height:200px;background:url(/img/loader.gif) center center no-repeat}
 .divider-dash{background-color:#fff;border-top:2px dashed #8c8b8b}
 .footer{padding:10px 0 0;margin:40px -15px 0 0}
 .foot{text-align:center;background-color:#f8f8f8;padding:15px 0}
 .carousel-inner>.item>a>img,.carousel-inner>.item>img,.img-responsive,.thumbnail a>img,.thumbnail>img{display:block;width:100%;height:auto}
+.carousel-inner>.item>picture>img{display:block;width:100%;height:auto;max-width:100%}
 .carousel-caption{background-color:rgba(0,0,0,.5);position:absolute;left:0;right:0;bottom:0;z-index:10;padding:0 0 10px 25px;color:#fff;text-align:left}
 .carousel-indicators{position:absolute;bottom:0;right:0;left:0;width:100%;z-index:15;margin:0;padding:0 25px 25px 0;text-align:right}
 .carousel-indicators li{margin:1px!important}
@@ -40,9 +40,7 @@ a.card i{position: absolute;
     top: 10px;}
 .narrow .card{padding:.5rem}
 .card-item{padding:1rem}
-.section-white{padding:10px 0}
-.section-white{background-color:#fff;color:#555}
-#waline{margin:20px}
+.section-white{padding:10px 0;background-color:#fff;color:#555}
 @media screen and (min-width:768px){.section-white{padding:1.5em 0}
 }
 @media screen and (min-width:992px){.gallery{max-width:930px}

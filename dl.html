@@ -9,10 +9,10 @@
   <link rel="icon" href="./img/favicon.ico">
 
   <title>清华大学果蝇中心 - 搜索</title>
-  <link href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./vendor/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="./style.css" rel="stylesheet">
-  <script src="//cdn.bootcdn.net/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./vendor/jquery/3.1.1/jquery.min.js"></script>
+  <script src="./vendor/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -51,7 +51,7 @@
     <form class="form-horizontal">
     <fieldset>
     <legend>RNAi Stock <sup><a class="glyphicon glyphicon-question-sign" href="./rnai.html"></a></sup>
-    <span style="font-size:10px;color: lightgrey">完整表格在页面底部<a href="#dl_panel">下载</a>, 多个搜索词请用{ | }间隔开</span><img style="display:inline-block" src="./img/pipe.png">
+    <span style="font-size:10px;color: lightgrey">完整表格在页面底部<a href="#dl_panel">下载</a>, 多个搜索词请用{ | }间隔开</span><img style="display:inline-block" src="./img/pipe.png" width="30" height="24">
     </legend>
     <div class="row">
     <!-- First row begin-->
@@ -216,7 +216,7 @@ $(document).ready(function(){
 
   function loadData() {
     if (!dataLoading) {
-      dataLoading = $.getJSON('/dl/stocks.json').then(function(d){ allData = d; });
+      dataLoading = $.getJSON('./dl/stocks.json').then(function(d){ allData = d; });
     }
     return dataLoading;
   }
