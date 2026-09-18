@@ -206,125 +206,111 @@
   </footer>
 </div>
 
-<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.8.2/dist/av-min.js"></script>
 <script type="text/javascript">
-  if (typeof Promise === "undefined") { 
-    var script = document.createElement('script'); 
-    script.type = 'text/javascript'; 
-    script.src = 'https://cdn.bootcdn.net/ajax/libs/bluebird/3.7.2/bluebird.core.min.js' 
-    document.getElementsByTagName('body')[0].appendChild(script);
-  }
 $(document).ready(function(){
-    function appendRow(idx, data) {
-      var str = ''
-      data.forEach(function(o) {
-        str += '<tr><th scope="row">'+(++idx)+"</th>"
-             + "<td>"+(o.get('s_th')||'-')+"</td>"
-             + "<td>"+(o.get('s_tr')||'-')+"</td>"
-             + "<td>"+(o.get('disc')||'-')+"</td>"
-             + "<td>"+(o.get('s_cg')||'-')+"</td>"
-             + "<td>"+(o.get('s_sy')||'-')+"</td>"
-             + "<td>"+(o.get('s_fb')||'-')+"</td>"
-             + "<td>"+(o.get('oligoF')||'-')+"</td>"
-             + "<td>"+(o.get('oligoR')||'-')+"</td>"
-             + "<td>"+(o.get('s_ve')||'-')+"</td>"
-             + "<td>"+(o.get('s_hi')||'-')+"</td>"
-             + "<td>"+(o.get('s_hl')||'-')+"</td>"
-             + "<td>"+(o.get('loc')||'-')+"</td>"
-             + "<td>"+(o.get('s_lo')||'-')+"</td></tr>"
-      });
+  var max_show = 50;
+  var allData = null, dataLoading = null;
+  var curResults = [], rendered = 0;
+  var LOAD_TEXT = '数据加载中，请稍候…';
+  var FAIL_TEXT = '数据加载失败';
+
+  function loadData() {
+    if (!dataLoading) {
+      dataLoading = $.getJSON('/dl/stocks.json').then(function(d){ allData = d; });
+    }
+    return dataLoading;
+  }
+
+  function appendRow(idx, data) {
+    var str = '';
+    data.forEach(function(o) {
+      str += '<tr><th scope="row">'+(++idx)+"</th>"
+           + "<td>"+(o.s_th||'-')+"</td>"
+           + "<td>"+(o.s_tr||'-')+"</td>"
+           + "<td>"+(o.disc||'-')+"</td>"
+           + "<td>"+(o.s_cg||'-')+"</td>"
+           + "<td>"+(o.s_sy||'-')+"</td>"
+           + "<td>"+(o.s_fb||'-')+"</td>"
+           + "<td>"+(o.oligoF||'-')+"</td>"
+           + "<td>"+(o.oligoR||'-')+"</td>"
+           + "<td>"+(o.s_ve||'-')+"</td>"
+           + "<td>"+(o.s_hi||'-')+"</td>"
+           + "<td>"+(o.s_hl||'-')+"</td>"
+           + "<td>"+(o.loc||'-')+"</td>"
+           + "<td>"+(o.s_lo||'-')+"</td></tr>";
+    });
     $('tbody').append(str);
   }
-  $(document).on('click','#count_btn',function(){
-    stock.count().then(function(c){
-      $('#results .panel-heading').text(c+' results in total')
-    }).catch(function(e) {
-        $('#results .panel-heading').text(e.rawMessage.split('\n')[0])
-        $('#results .panel').removeClass('panel-warning panel-success').addClass('panel-danger')
-      })
-  })
-  //init LC
-  var max_show = 50;
-  AV.init({
-    appId: "LjCEZiENFrfXZBSIysJsoNiy-MdYXbMMI",
-    appKey: "hkLxvpEJieyPCsTuFOrTiH1H",
-    serverURL: "https://io.thfc.zzbd.org"
-  });
-  // localStorage.setItem('debug', 'leancloud*');
-  var stock = {}
-  //show more table
-  $('#show_more').click(function(){
-    $('#show_more').hide();
-    $('#loading').show();
-    var row_count = $('#results tbody tr').length;
-    stock.skip(row_count);
-    //perform query
-    stock.find().then(function(data) {
-      $('#loading').hide();
-      if (data.length == max_show) {
-        $('#show_more').show();
-        real_count = (row_count+max_show)+'+'
-      } else {
-        real_count = row_count+data.length
-      }
-      $('#results .panel-heading').html(real_count+' results. <button id="count_btn">Count</button>')
-      appendRow(row_count, data)
-    }).catch(function(e) {
-      $('#results .panel-heading').text(e.rawMessage.split('\n')[0])
-      $('#results .panel').removeClass('panel-warning panel-success').addClass('panel-danger')
-    })
-  });
-  // submit
+
+  function renderMore() {
+    var batch = curResults.slice(rendered, rendered + max_show);
+    appendRow(rendered, batch);
+    rendered += batch.length;
+    $('#show_more').toggle(rendered < curResults.length);
+  }
+
+  $('#show_more').click(function(){ renderMore(); });
+
   $("form").submit(function(e) {
     e.preventDefault();
-    var headContent = "";
     var param = $(".form-control:input")
-    .filter(function(i, e) {
-      return $(e).val() != "";
-    }).serializeArray();
-    $('#pa').data('param', param);
-    stock = new AV.Query('Stocks');
+      .filter(function(i, e) { return $(e).val() != ""; })
+      .serializeArray();
+    var filters = [];
     $.each(param, function(i, o) {
-      var val = o.value.split('|')
+      var val = o.value.split('|');
       if (val.length == 1) {
-        if ($('#'+o.name).hasClass('multi')) stock.contains(o.name, val[0])
-        else if ($('#'+o.name).hasClass('precise')) stock.equalTo(o.name, val[0])
-        else stock.startsWith(o.name, val[0])
+        var v = val[0].toLowerCase();
+        if ($('#'+o.name).hasClass('multi')) filters.push({f:o.name, op:'contains', v:v});
+        else if ($('#'+o.name).hasClass('precise')) filters.push({f:o.name, op:'eq', v:v});
+        else filters.push({f:o.name, op:'starts', v:v});
       } else {
-        stock.containedIn(o.name, val)
-      }        
-    })
-    order.checked ? stock.descending('s_th') : stock.ascending('s_th');
-    stock.limit(max_show);
-    $('#submit').addClass('loading')
-    $('#results').removeClass('hide')
-    $('#show_more').hide()
-    $('#loading').hide()
-    //perform query
-    stock.find().then(function(data) {
-      $('#results tbody').html('')
-      if (data.length == 0) {
-        $('#results .panel').removeClass('panel-success panel-danger').addClass('panel-warning')
-        headContent = 'No results.'
-      } else {
-        $('#results .panel').removeClass('panel-warning panel-danger').addClass('panel-success')
-        if (data.length == max_show) {
-          headContent = max_show+'+ results. <button id="count_btn">Count</button>'
-          $('#show_more').show();
-        } else {
-          headContent = data.length+' results.'
-        }
-        appendRow($('#results tbody tr').length, data)
+        filters.push({f:o.name, op:'in', v: val.map(function(s){ return s.toLowerCase(); })});
       }
-    }).catch(function(e) {
-      headContent = e.rawMessage.split('\n')[0]
-      $('#results .panel').removeClass('panel-warning panel-success').addClass('panel-danger')
-    }).finally(function(){
-      $('#results .panel-heading').html(headContent)
-      $('#submit').removeClass('loading')        
+    });
+    $('#submit').addClass('loading');
+    $('#results').removeClass('hide');
+    $('#show_more').hide();
+    $('#loading').hide();
+    $('#results tbody').html('');
+    var heading = $('#results .panel-heading');
+    if (!allData) heading.text(LOAD_TEXT);
+    loadData().then(function() {
+      curResults = allData.filter(function(row) {
+        return filters.every(function(ft) {
+          var d = row[ft.f];
+          if (d == null) return false;
+          d = String(d).toLowerCase();
+          switch (ft.op) {
+            case 'contains': return d.indexOf(ft.v) >= 0;
+            case 'starts':   return d.indexOf(ft.v) === 0;
+            case 'eq':       return d === ft.v;
+            default:         return ft.v.indexOf(d) >= 0;
+          }
+        });
+      });
+      var desc = $('#order').is(':checked');
+      curResults.sort(function(a, b) {
+        var x = a.s_th || '', y = b.s_th || '';
+        return (x < y ? -1 : x > y ? 1 : 0) * (desc ? -1 : 1);
+      });
+      rendered = 0;
+      var panel = $('#results .panel');
+      if (curResults.length == 0) {
+        panel.removeClass('panel-success panel-danger').addClass('panel-warning');
+        heading.text('No results.');
+      } else {
+        panel.removeClass('panel-warning panel-danger').addClass('panel-success');
+        heading.text(curResults.length + ' results.');
+        renderMore();
+      }
+    }).fail(function(xhr) {
+      $('#results .panel').removeClass('panel-warning panel-success').addClass('panel-danger');
+      heading.text(FAIL_TEXT + ' (' + xhr.status + ')');
+    }).always(function() {
+      $('#submit').removeClass('loading');
     });
   });
 });
-</script>
-</body>
+</script></body>
 </html>
